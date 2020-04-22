@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Interactive CookBook</string>
+    <string name="Main_Dishes">Main Dishes</string>
+    <string name="Drinks">Drinks</string>
+    <string name="Desserts">Desserts</string>
+    <string name="Kids">Kids Menu</string>
+    <string name="prep">Prep Time</string>
+    <string name="cook">Cook Time</string>
+    <string name="total">Total Time</string>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/parchment"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/MainDishes"
+        android:tooltipText="@string/Main_Dishes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/Main_Dishes"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_salad"
+        app:layout_constraintBottom_toTopOf="@id/cocktail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/KidsMenu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/KidsMenu"
+        android:tooltipText="@string/Kids"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/Kids"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_burger"
+        app:layout_constraintBottom_toTopOf="@id/cake"
+        app:layout_constraintLeft_toRightOf="@id/MainDishes"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cocktail"
+        android:tooltipText="@string/Drinks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/Drinks"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_wine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/cake"
+        app:layout_constraintTop_toBottomOf="@id/MainDishes" />
+
+    <ImageView
+        android:id="@+id/cake"
+        android:tooltipText="@string/Desserts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/Desserts"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_cake"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/cocktail"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/MainDishes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

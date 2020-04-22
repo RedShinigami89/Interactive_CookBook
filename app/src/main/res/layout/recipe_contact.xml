@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#DCDCDC"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/sampleImage"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/recipeName"
+            android:textColor="#BE8CFF"
+            android:layout_toEndOf="@+id/sampleImage"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/midnight1"
+            android:textSize="25sp"
+            />
+
+            <TextView
+                android:id="@+id/prep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prep"
+                android:textSize="16sp"
+                android:fontFamily="@font/midnight1"
+                android:layout_below="@id/recipeName"
+                android:layout_toEndOf="@id/sampleImage"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"/>
+            <TextView
+                android:id="@+id/cook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cook"
+                android:textSize="16sp"
+                android:fontFamily="@font/midnight1"
+                android:layout_below="@id/recipeName"
+                android:layout_toEndOf="@id/prep"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total"
+                android:textSize="16sp"
+                android:fontFamily="@font/midnight1"
+                android:layout_below="@id/recipeName"
+                android:layout_toEndOf="@id/cook"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"/>
+
+            <TextView
+                android:id="@+id/PrepTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/midnight1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="30dp"
+                android:layout_below="@id/prep"
+                android:layout_toEndOf="@id/sampleImage"/>
+
+            <TextView
+                android:id="@+id/CookTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/midnight1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="45dp"
+                android:layout_below="@id/prep"
+                android:layout_toEndOf="@id/PrepTime"/>
+
+            <TextView
+                android:id="@+id/TotalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/midnight1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="45dp"
+                android:layout_below="@id/prep"
+                android:layout_toEndOf="@id/CookTime"/>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
