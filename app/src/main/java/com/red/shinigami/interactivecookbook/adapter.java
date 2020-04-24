@@ -13,8 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
     private ArrayList<Recipes> mRecipes;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
     public static class viewHolder extends RecyclerView.ViewHolder{
+
+
         public ImageView mImageView;
         public TextView mTextView;
         public TextView mPrep;
@@ -23,7 +34,11 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
 
 
 
-        public viewHolder(@NonNull View itemView) {
+
+
+
+
+        public viewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             mImageView = itemView.findViewById(R.id.sampleImage);
@@ -31,6 +46,19 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
             mPrep = itemView.findViewById(R.id.PrepTime);
             mCook = itemView.findViewById(R.id.CookTime);
             mTotal = itemView.findViewById(R.id.TotalTime);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+
+                }
+            });
         }
     }
 
@@ -43,7 +71,7 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_contact, parent, false);
-        viewHolder vh = new viewHolder(v);
+        viewHolder vh = new viewHolder(v, mListener);
         return vh;
     }
 
@@ -57,7 +85,16 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
         holder.mCook.setText(currentRecipes.getmCookTime());
         holder.mTotal.setText(currentRecipes.getmTotalTime());
 
-    }
+
+
+
+        }
+
+
+
+
+
+
 
     @Override
     public int getItemCount() {

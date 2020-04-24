@@ -19,6 +19,10 @@ class Recipes {
 
     }
 
+    public void changeText(String text){
+      mrecipeName = text;
+    }
+
     public int getMsampleImage(){
 
       return msampleImage;
