@@ -28,9 +28,18 @@ public class mainDishes extends AppCompatActivity{
         mAdapter.setOnItemClickListener(new adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                changeItem(position, "Clicked");
-                Intent contactIntent = new Intent(mainDishes.this, RecipeDetailActivity.class);
-                startActivity(contactIntent);
+                changeItem(position);
+                Intent intent = null;
+                switch (position) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        intent = new Intent(mainDishes.this, PorkChops_Activity.class);
+                        break;
+
+                }
+                startActivity(intent);
                 mAdapter.notifyItemChanged(position);
             }
         });
@@ -48,8 +57,8 @@ public class mainDishes extends AppCompatActivity{
 
         }
 
-        public void changeItem(int position, String text){
-            recipes.get(position).changeText(text);
+        public void changeItem(int position){
+            recipes.get(position);
         }
 
 

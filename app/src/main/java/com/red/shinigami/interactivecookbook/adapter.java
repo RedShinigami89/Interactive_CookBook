@@ -19,26 +19,27 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+     void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
     }
 
-    public static class viewHolder extends RecyclerView.ViewHolder{
+     static class viewHolder extends RecyclerView.ViewHolder{
 
 
-        public ImageView mImageView;
-        public TextView mTextView;
-        public TextView mPrep;
-        public TextView mCook;
-        public TextView mTotal;
-
-
-
+         ImageView mImageView;
+         TextView mTextView;
+         TextView mPrep;
+         TextView mCook;
+         TextView mTotal;
 
 
 
 
-        public viewHolder(@NonNull View itemView, final OnItemClickListener listener) {
+
+
+
+
+       viewHolder(@NonNull final View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             mImageView = itemView.findViewById(R.id.sampleImage);
@@ -47,22 +48,34 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
             mCook = itemView.findViewById(R.id.CookTime);
             mTotal = itemView.findViewById(R.id.TotalTime);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+
+
+          itemView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
                     if (listener != null){
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
+                        if(position != RecyclerView.NO_POSITION) {
                             listener.onItemClick(position);
+
+
+
                         }
+
+
+                        }
+
                     }
 
-                }
-            });
-        }
-    }
 
-    public adapter(ArrayList<Recipes>Recipes){
+
+                });
+            }
+        }
+
+
+    adapter(ArrayList<Recipes> Recipes){
         mRecipes = Recipes;
 
     }
@@ -84,6 +97,7 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
         holder.mPrep.setText(currentRecipes.getmPrepTime());
         holder.mCook.setText(currentRecipes.getmCookTime());
         holder.mTotal.setText(currentRecipes.getmTotalTime());
+
 
 
 

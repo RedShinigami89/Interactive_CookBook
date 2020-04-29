@@ -7,4 +7,22 @@
     <string name="prep">Prep Time</string>
     <string name="cook">Cook Time</string>
     <string name="total">Total Time</string>
+    <string name="ingredient">Ingredient\'s</string>
+    <string name="Porkchops">World\'s Best Honey Garlic Pork Chops</string>
+
+    <string name="half"><![CDATA[1/2]]></string>
+    <string name="quarter"><![CDATA[1/4]]></string>
+    <string name="three_quarter">3/4</string>
+    <string name="third">1/3</string>
+    <string name="twoThird">2/3</string>
+    <string name="teaspoon">teaspoon</string>
+    <string name="cup">Cup</string>
+    <string name="Tablespoon">Tablespoon</string>
+    <string name="ketchup">Ketchup</string>
+    <string name="honey">Honey</string>
+    <string name="soy">Low Sodium Soy Sauce</string>
+    <string name="garlic">Garlic</string>
+    <string name="clove">Cloves</string>
+    <string name="pork">Pork Chops</string>
+
 </resources>

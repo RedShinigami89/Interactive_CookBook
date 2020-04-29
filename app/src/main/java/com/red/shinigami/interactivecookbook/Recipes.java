@@ -2,14 +2,13 @@ package com.red.shinigami.interactivecookbook;
 
 class Recipes {
 
-    String mrecipeName;
-    String mPrepTime;
-    String mCookTime;
-    String mTotalTime;
+    private String mrecipeName;
+    private String mPrepTime;
+    private String mCookTime;
+    private String mTotalTime;
 
-    int msampleImage;
-
-  public  Recipes(String recipeName, int sampleImage, String PrepTime, String CookTime, String TotalTime){
+    private int msampleImage;
+    Recipes(String recipeName, int sampleImage, String PrepTime, String CookTime, String TotalTime){
       mrecipeName = recipeName;
       msampleImage = sampleImage;
       mPrepTime = PrepTime;
@@ -19,29 +18,27 @@ class Recipes {
 
     }
 
-    public void changeText(String text){
+     void changeText(String text){
       mrecipeName = text;
     }
 
-    public int getMsampleImage(){
-
+    int getMsampleImage(){
       return msampleImage;
     }
 
-    public String getmrecipeName(){
-
+     String getmrecipeName(){
       return mrecipeName;
     }
 
-    public String getmPrepTime(){
-      return mPrepTime;
+   String getmPrepTime(){
+        return mPrepTime;
     }
 
-    public String getmCookTime(){
+    String getmCookTime(){
       return mCookTime;
     }
 
-    public String getmTotalTime(){
+    String getmTotalTime(){
       return mTotalTime;
     }
 
