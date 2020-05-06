@@ -1,32 +1,57 @@
 package com.red.shinigami.interactivecookbook;
 
-class Recipes {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    private String mrecipeName;
+class Recipes implements Parcelable {
+
+    private int mrecipeName;
     private String mPrepTime;
     private String mCookTime;
     private String mTotalTime;
+    private String mRecipeImages;
+    private String mYTURL;
 
-    private int msampleImage;
-    Recipes(String recipeName, int sampleImage, String PrepTime, String CookTime, String TotalTime){
+
+    Recipes(int recipeName, String recipeImage, String PrepTime, String CookTime, String TotalTime, String YTURL){
       mrecipeName = recipeName;
-      msampleImage = sampleImage;
+      mRecipeImages = recipeImage;
       mPrepTime = PrepTime;
       mCookTime = CookTime;
       mTotalTime = TotalTime;
+      mYTURL = YTURL;
 
 
     }
 
-     void changeText(String text){
+    protected Recipes(Parcel in) {
+        mrecipeName = in.readInt();
+        mPrepTime = in.readString();
+        mCookTime = in.readString();
+        mTotalTime = in.readString();
+        mRecipeImages = in.readString();
+        mYTURL = in.readString();
+    }
+
+    public static final Creator<Recipes> CREATOR = new Creator<Recipes>() {
+        @Override
+        public Recipes createFromParcel(Parcel in) {
+            return new Recipes(in);
+        }
+
+        @Override
+        public Recipes[] newArray(int size) {
+            return new Recipes[size];
+        }
+    };
+
+    void changeText(int text){
       mrecipeName = text;
     }
 
-    int getMsampleImage(){
-      return msampleImage;
-    }
+    public String getmRecipeImages(){return mRecipeImages;}
 
-     String getmrecipeName(){
+     int getmrecipeName(){
       return mrecipeName;
     }
 
@@ -41,6 +66,21 @@ class Recipes {
     String getmTotalTime(){
       return mTotalTime;
     }
+    String getmYTURL(){ return mYTURL;}
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(mrecipeName);
+        parcel.writeString(mPrepTime);
+        parcel.writeString(mCookTime);
+        parcel.writeString(mTotalTime);
+        parcel.writeString(mRecipeImages);
+        parcel.writeString(mYTURL);
+    }
 }

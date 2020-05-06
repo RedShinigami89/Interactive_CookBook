@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="100"
+    android:id="@+id/linearLayout"
     android:background="@drawable/parchment"
     tools:context=".PorkChops_Activity">
 
@@ -17,9 +18,9 @@
         android:id="@+id/Image"
         android:contentDescription="@string/Main_Dishes"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
         android:layout_height="0dp"
-        android:layout_weight="40"/>
+        android:layout_weight="60"
+         />
 
     <View
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
         />
 
     <TextView
+        android:id="@+id/recipeTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -39,76 +41,111 @@
         android:textColor="@color/colorAccent"/>
 
     <View
+        android:id="@+id/TitleHeaderLowerBar"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_margin="20dp"
         android:background="?android:attr/listDivider"
         />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="148dp"
+            android:layout_marginEnd="12dp"
+            android:layout_alignParentEnd="true">
+
+
+            <VideoView
+                android:id="@+id/VideoView1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <ImageView
+            android:contentDescription="@string/Missing"
+            android:id="@+id/ImageViewError"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="148dp"
+            android:layout_toEndOf="@id/ingredientHeaderLine"
+            android:src="@drawable/ic_error"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ingredient2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ingredient1"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/midnight1"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ingredient3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ingredient2"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/midnight1"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ingredient4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ingredient3"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/midnight1"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ingredient5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ingredient4"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/midnight1"
+            android:text="" />
+
         <TextView
             android:id="@+id/ingredientHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ingredient"
-            android:fontFamily="@font/midnight1"
             android:layout_marginStart="8dp"
-            android:textSize="20sp"/>
+            android:fontFamily="@font/midnight1"
+            android:text="@string/ingredient"
+            android:textSize="20sp"
+            tools:ignore="RelativeOverlap" />
         <View
             android:id="@+id/ingredientHeaderLine"
             android:layout_width="wrap_content"
             android:layout_height="4dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="6dp"
-            android:layout_alignEnd="@id/ingredientHeader"
             android:layout_below="@id/ingredientHeader"
-            android:background="?android:attr/listDivider"/>
+            android:layout_alignEnd="@id/ingredientHeader"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/listDivider" />
 
         <TextView
             android:id="@+id/ingredient1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredientHeaderLine"
-            android:layout_marginTop="6dp"
             android:layout_marginStart="6dp"
-            android:fontFamily="@font/midnight1"
-            android:text=""/>
-        <TextView
-            android:id="@+id/ingredient2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ingredient1"
             android:layout_marginTop="6dp"
-            android:layout_marginStart="6dp"
             android:fontFamily="@font/midnight1"
-            android:text=""/>
-        <TextView
-            android:id="@+id/ingredient3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ingredient2"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="6dp"
-            android:fontFamily="@font/midnight1"
-            android:text=""/>
-        <TextView
-            android:id="@+id/ingredient4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ingredient3"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="6dp"
-            android:fontFamily="@font/midnight1"
-            android:text=""/>
-        <TextView
-            android:id="@+id/ingredient5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ingredient4"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="6dp"
-            android:fontFamily="@font/midnight1"
-            android:text=""/>
+            android:text="" />
+
+
     </RelativeLayout>
 </LinearLayout>

@@ -24,6 +24,7 @@
             android:id="@+id/sampleImage"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+
             />
 
         <TextView
@@ -36,7 +37,7 @@
             android:layout_toEndOf="@+id/sampleImage"
             android:layout_alignParentTop="true"
             android:fontFamily="@font/midnight1"
-            android:textSize="25sp"
+            android:textSize="18sp"
             />
 
             <TextView

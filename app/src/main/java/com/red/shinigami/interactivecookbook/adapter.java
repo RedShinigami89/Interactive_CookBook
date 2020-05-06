@@ -1,19 +1,35 @@
 package com.red.shinigami.interactivecookbook;
 
+import android.content.ClipData;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
     private ArrayList<Recipes> mRecipes;
-    private OnItemClickListener mListener;
+       private OnItemClickListener mListener;
+       Context context;
+public adapter(Context context, List<ClipData.Item> items){
+    this.context = context;
+}
+
+
+
+
+
+
 
     public interface OnItemClickListener{
         void onItemClick(int position);
@@ -31,6 +47,7 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
          TextView mPrep;
          TextView mCook;
          TextView mTotal;
+         Context context;
 
 
 
@@ -47,6 +64,10 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
             mPrep = itemView.findViewById(R.id.PrepTime);
             mCook = itemView.findViewById(R.id.CookTime);
             mTotal = itemView.findViewById(R.id.TotalTime);
+           Context mContext = itemView.getContext();
+
+
+
 
 
 
@@ -75,6 +96,7 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
         }
 
 
+
     adapter(ArrayList<Recipes> Recipes){
         mRecipes = Recipes;
 
@@ -88,11 +110,10 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
         return vh;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         Recipes currentRecipes = mRecipes.get(position);
-
-        holder.mImageView.setImageResource(currentRecipes.getMsampleImage());
         holder.mTextView.setText(currentRecipes.getmrecipeName());
         holder.mPrep.setText(currentRecipes.getmPrepTime());
         holder.mCook.setText(currentRecipes.getmCookTime());
@@ -100,9 +121,24 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
 
 
 
+        Glide.with(holder.itemView).load(currentRecipes.getmRecipeImages()).apply(new RequestOptions().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(holder.mImageView);
 
+
+
+
+
+        switch(position){
+            case 0:
 
         }
+
+    }
+
+
+
+
+
+
 
 
 

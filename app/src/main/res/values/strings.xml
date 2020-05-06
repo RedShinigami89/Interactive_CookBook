@@ -8,7 +8,12 @@
     <string name="cook">Cook Time</string>
     <string name="total">Total Time</string>
     <string name="ingredient">Ingredient\'s</string>
+    <string name="Missing">Missing Resource</string>
     <string name="Porkchops">World\'s Best Honey Garlic Pork Chops</string>
+    <string name="burger">The Best Classic Burger Recipe</string>
+    <string name="tikka">Chicken Tikka Masala</string>
+    <string name="Ginger_Beef">Crispy Ginger Beef</string>
+
 
     <string name="half"><![CDATA[1/2]]></string>
     <string name="quarter"><![CDATA[1/4]]></string>
