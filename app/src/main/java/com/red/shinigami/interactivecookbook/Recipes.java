@@ -22,9 +22,10 @@ class Recipes implements Parcelable {
       mYTURL = YTURL;
 
 
+
     }
 
-    protected Recipes(Parcel in) {
+    private Recipes(Parcel in) {
         mrecipeName = in.readInt();
         mPrepTime = in.readString();
         mCookTime = in.readString();
@@ -49,7 +50,7 @@ class Recipes implements Parcelable {
       mrecipeName = text;
     }
 
-    public String getmRecipeImages(){return mRecipeImages;}
+    String getmRecipeImages(){return mRecipeImages;}
 
      int getmrecipeName(){
       return mrecipeName;
@@ -66,6 +67,7 @@ class Recipes implements Parcelable {
     String getmTotalTime(){
       return mTotalTime;
     }
+
     String getmYTURL(){ return mYTURL;}
 
 

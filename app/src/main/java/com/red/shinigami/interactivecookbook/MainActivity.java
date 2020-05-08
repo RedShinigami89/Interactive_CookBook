@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ImageView mainDishes= (ImageView)findViewById(R.id.MainDishes);
+        ImageView mainDishes= findViewById(R.id.MainDishes);
         mainDishes.setOnClickListener(new View.OnClickListener()
 
         {

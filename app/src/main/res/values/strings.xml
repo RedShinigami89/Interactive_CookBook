@@ -15,6 +15,7 @@
     <string name="Ginger_Beef">Crispy Ginger Beef</string>
 
 
+<!-- Ingredients and measurements -->
     <string name="half"><![CDATA[1/2]]></string>
     <string name="quarter"><![CDATA[1/4]]></string>
     <string name="three_quarter">3/4</string>
@@ -28,6 +29,46 @@
     <string name="soy">Low Sodium Soy Sauce</string>
     <string name="garlic">Garlic</string>
     <string name="clove">Cloves</string>
+    <string name="mince">Minced</string>
     <string name="pork">Pork Chops</string>
+    <string name="leanBeef">Lean Ground Beef</string>
+    <string name="seasoning">Seasoning Salt</string>
+    <string name="slice">Cheese Slices</string>
+    <string name="garlicPowder">Garlic Powder</string>
+    <string name="Worcestershire">Worcestershire Sauce</string>
+    <string name="pepper">Ground Black Peper</string>
+    <string name="crush">Crushed</string>
+    <string name="pound">Pounds</string>
+    <string name="hamburgerBun">Hamberger Buns</string>
+    <string name="yogurt">Yogurt</string>
+    <string name="lemon">Lemon Juice</string>
+    <string name="cumin">Ground Cumin</string>
+    <string name="cinnamon">Ground Cinnamon</string>
+    <string name="cayenne">Cayenne Pepper</string>
+    <string name="ginger">Minced Ginger</string>
+    <string name="salt">Salt</string>
+    <string name="boneless">Boneless</string>
+    <string name="chicken">Chicken</string>
+    <string name="skewers">Long Skewers</string>
+    <string name="butter">Butter</string>
+    <string name="jalapeno">Jalapeno</string>
+    <string name="can">Can</string>
+    <string name="paprika">Paprika</string>
+    <string name="tomatosauce">Tomato Sauce</string>
+    <string name="cream">Heavy Cream</string>
+    <string name="cilantro">Cilantro</string>
+    <string name="chop">Choppped</string>
+
+    <!--Number-->
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
 
 </resources>

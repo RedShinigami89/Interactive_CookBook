@@ -19,6 +19,7 @@
 
 
         <ImageView
+            android:contentDescription="@string/Main_Dishes"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/sampleImage"

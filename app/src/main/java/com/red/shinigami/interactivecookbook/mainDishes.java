@@ -11,11 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class mainDishes extends AppCompatActivity{
 
-
-
-
-    final String imageUrl = "https://i.imgur.com/ks3xoD6.jpg";
-    final String loading = "https://gph.is/1XRTmuh";
     private ArrayList<Recipes> recipes;
 
 
@@ -31,7 +26,6 @@ public class mainDishes extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final adapter mAdapter = new adapter(recipes);
-        //final ImageView imageView = findViewById(R.id.sampleImage);
         recyclerView.setAdapter(mAdapter);
 
 
@@ -77,7 +71,7 @@ public class mainDishes extends AppCompatActivity{
 
 
 
-        public void changeItem(int position){
+       public void changeItem(int position){
             recipes.get(position);
         }
 

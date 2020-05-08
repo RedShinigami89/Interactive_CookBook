@@ -20,10 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
     private ArrayList<Recipes> mRecipes;
        private OnItemClickListener mListener;
-       Context context;
-public adapter(Context context, List<ClipData.Item> items){
-    this.context = context;
-}
+
+    public adapter(Context context, List<ClipData.Item> items){
+    }
 
 
 
@@ -47,7 +46,7 @@ public adapter(Context context, List<ClipData.Item> items){
          TextView mPrep;
          TextView mCook;
          TextView mTotal;
-         Context context;
+
 
 
 
@@ -64,7 +63,7 @@ public adapter(Context context, List<ClipData.Item> items){
             mPrep = itemView.findViewById(R.id.PrepTime);
             mCook = itemView.findViewById(R.id.CookTime);
             mTotal = itemView.findViewById(R.id.TotalTime);
-           Context mContext = itemView.getContext();
+         //  Context mContext = itemView.getContext();
 
 
 
@@ -106,8 +105,7 @@ public adapter(Context context, List<ClipData.Item> items){
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_contact, parent, false);
-        viewHolder vh = new viewHolder(v, mListener);
-        return vh;
+        return new viewHolder(v, mListener);
     }
 
 
@@ -127,10 +125,11 @@ public adapter(Context context, List<ClipData.Item> items){
 
 
 
-        switch(position){
+       /* switch(position){
             case 0:
 
         }
+        */
 
     }
 
