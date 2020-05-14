@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/parchment">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:weightSum="100"
     android:id="@+id/linearLayout"
-    android:background="@drawable/parchment"
     tools:context=".PorkChops_Activity">
+
+    <androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:id="@+id/my_toolbar"
+    android:background="@color/colorPrimary"
+    android:elevation="2dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 
 
@@ -18,9 +32,8 @@
         android:id="@+id/Image"
         android:contentDescription="@string/Main_Dishes"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="60"
-         />
+        android:layout_height="275dp"
+        android:transitionName="Slider"/>
 
     <View
         android:layout_width="match_parent"
@@ -32,8 +45,7 @@
     <TextView
         android:id="@+id/recipeTitle"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_height="30dp"
         android:textAlignment="center"
         android:textSize="25sp"
         android:fontFamily="@font/midnight1"
@@ -49,6 +61,7 @@
         />
 
     <RelativeLayout
+        android:id="@+id/RV1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -239,6 +252,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient6"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient5"
@@ -249,6 +263,7 @@
 
         <TextView
             android:id="@+id/ingredient7"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient6"
@@ -258,6 +273,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient8"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient7"
@@ -267,6 +283,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient9"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient8"
@@ -276,6 +293,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient10"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient9"
@@ -286,6 +304,7 @@
 
         <TextView
             android:id="@+id/ingredient11"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient10"
@@ -296,6 +315,7 @@
 
         <TextView
             android:id="@+id/ingredient12"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient11"
@@ -305,6 +325,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient13"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient12"
@@ -314,6 +335,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient14"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient13"
@@ -324,6 +346,7 @@
 
         <TextView
             android:id="@+id/ingredient15"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/prep2"
@@ -334,6 +357,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient16"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient15"
@@ -344,6 +368,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient17"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient16"
@@ -354,6 +379,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient18"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient17"
@@ -364,6 +390,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient19"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient18"
@@ -374,6 +401,7 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient20"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient19"
@@ -382,11 +410,133 @@
             android:layout_marginTop="6dp"
             android:fontFamily="@font/midnight1"
             android:text="" />
+      </RelativeLayout>
+    <View
+       android:id="@+id/DecriptionHeader"
+       android:layout_width="match_parent"
+       android:layout_height="6dp"
+       android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+       android:background="@drawable/ic_ornament_146823"
+       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/directions"
+        android:fontFamily="@font/midnight1"
+        android:textSize="20sp"/>
+    <View
+        android:id="@+id/DecriptionLowerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ic_ornament_146823"
+        />
 
+    <TextView
+        android:id="@+id/directions1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
 
-
-
-
-
-    </RelativeLayout>
 </LinearLayout>
+</ScrollView>

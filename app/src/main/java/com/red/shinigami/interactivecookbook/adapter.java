@@ -119,7 +119,7 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> {
 
 
 
-        Glide.with(holder.itemView).load(currentRecipes.getmRecipeImages()).apply(new RequestOptions().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(holder.mImageView);
+        Glide.with(holder.itemView).load(currentRecipes.getmRecipeImages()).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(holder.mImageView);
 
 
 

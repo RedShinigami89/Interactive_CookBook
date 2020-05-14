@@ -9,13 +9,16 @@
     <string name="total">Total Time</string>
     <string name="ingredient">Ingredient\'s</string>
     <string name="Missing">Missing Resource</string>
-    <string name="Porkchops">World\'s Best Honey Garlic Pork Chops</string>
-    <string name="burger">The Best Classic Burger Recipe</string>
+    <string name="Porkchops">Honey Garlic Pork Chops</string>
+    <string name="burger">Classic Burger</string>
     <string name="tikka">Chicken Tikka Masala</string>
     <string name="Ginger_Beef">Crispy Ginger Beef</string>
+    <string name="twiceBaked">Twice Baked Potatoes</string>
+    <string name="directions">Directions</string>
+    <string name="enjoy">Bon appetite!</string>
 
 
-<!-- Ingredients and measurements -->
+    <!-- Ingredients and measurements -->
     <string name="half"><![CDATA[1/2]]></string>
     <string name="quarter"><![CDATA[1/4]]></string>
     <string name="three_quarter">3/4</string>
@@ -58,6 +61,17 @@
     <string name="cream">Heavy Cream</string>
     <string name="cilantro">Cilantro</string>
     <string name="chop">Choppped</string>
+    <string name="potatoe">Potatoes</string>
+    <string name="bacon">Bacon</string>
+    <string name="onion">Onion</string>
+    <string name="mushroom">Mushrooms</string>
+    <string name="redPepper">Red Pepper</string>
+    <string name="chives">Chives</string>
+    <string name="ounceContainer"> 8 Ounce Container</string>
+    <string name="sourCream">Sour Cream</string>
+    <string name="shreddedCheddar">Shredded Cheddar</string>
+    <string name="dryBread">Dry Bead Crumbs</string>
+
 
     <!--Number-->
     <string name="zero">0</string>
@@ -70,5 +84,22 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="nine">9</string>
+
+    <!--Directions-->
+    <string name="tikkaDirections1">1) Start by Cutting the boneless chickens into bite size pieces</string>
+    <string name="tikkaDirections2">2) Combine Yogurt, lemon juice 2tsp of cumin, the cinnamon, cayenne black pepper ginger and the salt. Mix Well and stir in chicken.</string>
+    <string name="tikkaDirections3">3) Refrigerate for one hour</string>
+    <string name="tikkaDirections4">4) Preheat the grill with High Heat</string>
+    <string name="tikkaDirections5">5) Lightly Oil the Grill grates</string>
+    <string name="tikkaDirections6">6) Thread the Chicken onto skewers and discard the Marinade</string>
+    <string name="tikkaDirections7">7) Grill until juices run clear, about 5 mins. per side</string>
+    <string name="tikkaDirections8">8) Melt the butter in a large heavy skillet over medium heat.</string>
+    <string name="tikkaDirections9">9) Saute garlic and jalapeno for 1 min</string>
+    <string name="tikkaDirections10">10) Season with the rest of the cumin, paprika, and 1tsp of salt.</string>
+    <string name="tikkaDirections11">11) Stir in tomato sauce and Heavy Creame</string>
+    <string name="tikkaDirections12">12) Simmer on low heat till sauce thickens approx. 20 minutes.</string>
+    <string name="tikkaDirections13">13) Add Grilled Chicken and simmer for 10 minutes.</string>
+    <string name="tikkaDirections14">14) Transfer to a serving Platter and garnish with fresh Cilantro</string>
+
 
 </resources>

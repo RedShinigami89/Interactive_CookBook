@@ -1,17 +1,24 @@
 package com.red.shinigami.interactivecookbook;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 
 
 public class PorkChops_Activity extends AppCompatActivity {
@@ -22,187 +29,93 @@ public class PorkChops_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_porkchops);
-        ingredientList();
-
-        VideoView VidView1 = findViewById(R.id.VideoView1);
-        ImageView error = findViewById(R.id.ImageViewError);
-        ImageView imageView = findViewById(R.id.Image);
-        TextView prep = findViewById(R.id.prep2);
-        TextView cook = findViewById(R.id.cook2);
-        TextView total = findViewById(R.id.total2);
-        TextView RecipeTitle = findViewById(R.id.recipeTitle);
-
-
-
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         Intent intent = getIntent();
         Recipes recipes = intent.getParcelableExtra("recipe loader");
-
-        MediaController mMedia = new MediaController(PorkChops_Activity.this);
-
-        String vid = recipes.getmYTURL();
-        String prepText = recipes.getmPrepTime();
-        String cookText = recipes.getmCookTime();
-        String totalText = recipes.getmTotalTime();
-
-        int updateTitle = recipes.getmrecipeName();
-        RecipeTitle.setText(updateTitle);
-        prep.setText(prepText);
-        cook.setText(cookText);
-        total.setText(totalText);
-        String imageUrl = recipes.getmRecipeImages();
-
-        if(vid.contains("brightcove.net")) {
-            VidView1.setVisibility(VideoView.GONE);
-            error.setVisibility(ImageView.VISIBLE);
-
-        }if(vid.equals("")){
-            VidView1.setVisibility(VideoView.GONE);
-            error.setVisibility(ImageView.VISIBLE);
-
-        }else {
-            Uri vidUri = Uri.parse(vid);
-            VidView1.setVideoURI(vidUri);
-            VidView1.setMediaController(mMedia);
-            mMedia.setAnchorView(VidView1);
-            VidView1.start();
-        }
-
-        Glide.with(this).load(imageUrl).centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error).into(imageView);
-
-    }
-
-    //Ingredient List
-    String Ingredient1;
-    String Ingredient2;
-    String Ingredient3;
-    String Ingredient4;
-    String Ingredient5;
-    String Ingredient6;
-    String Ingredient7;
-    String Ingredient8;
-    String Ingredient9;
-    String Ingredient10;
-    String Ingredient11;
-    String Ingredient12;
-    String Ingredient13;
-    String Ingredient14;
-    String Ingredient15;
-    String Ingredient16;
-    String Ingredient17;
-    String Ingredient18;
-    String Ingredient19;
-    String Ingredient20;
+        final  String name = getString(recipes.getmrecipeName());
+        final String imageUrl = recipes.getmRecipeImages();
+        PorkChops_Activity.this.setTitle(name);
+        final TextView Title = findViewById(R.id.recipeTitle);
+        final TextView Ingredient1 = findViewById(R.id.ingredient1);
+        final TextView Ingredient2 = findViewById(R.id.ingredient2);
+        final TextView Ingredient3 = findViewById(R.id.ingredient3);
+        final TextView Ingredient4 = findViewById(R.id.ingredient4);
+        final TextView Ingredient5 = findViewById(R.id.ingredient5);
+        final TextView Ingredient6 = findViewById(R.id.ingredient6);
+        final TextView Ingredient7 = findViewById(R.id.ingredient7);
+        final TextView Ingredient8 = findViewById(R.id.ingredient8);
+        final TextView Ingredient9 = findViewById(R.id.ingredient9);
+        final ImageView HeaderImage = findViewById(R.id.Image);
+        Glide.with(this).load(imageUrl).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(HeaderImage);
 
 
 
+        String url = "https://api.npoint.io/11990ece203fd1b2c219";
+
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (com.android.volley.Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+
+                            JSONArray JA = response.getJSONArray(name); //gets array information based on which contact was clicked via variable name
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject object = JA.getJSONObject(i);
+                                String title = object.getString("RecipeTitle"); //from the object in the array above
+                                String ingredient1 = object.getString("Ingredient1");
+                                String ingredient2 = object.getString("Ingredient2");
+                                String ingredient3 = object.getString("Ingredient3");
+                                String ingredient4 = object.getString("Ingredient4");
+                                String ingredient5 = object.getString("Ingredient5");
+                               // String ingredient6 = object.getString("Ingredient6");
+                               // String ingredient7 = object.getString("Ingredient7");
+                                Title.setText(title);
+                                Ingredient1.setText(ingredient1);//set text of ingredient 1 of json file
+                                Ingredient1.setVisibility(View.VISIBLE);//makes the textview visible 
+                                Ingredient2.setText(ingredient2);
+                                Ingredient2.setVisibility(View.VISIBLE);
+                                Ingredient3.setText(ingredient3);
+                                Ingredient3.setVisibility(View.VISIBLE);
+                                Ingredient4.setText(ingredient4);
+                                Ingredient4.setVisibility(View.VISIBLE);
+                                Ingredient5.setText(ingredient5);
+                                Ingredient5.setVisibility(View.VISIBLE);
+                               // Ingredient6.setText(ingredient6);
+                               // Ingredient6.setVisibility(View.VISIBLE);
+
+                            }
 
 
-    public void ingredientList() {
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
 
 
-        Intent intent = getIntent();
-        Recipes recipes = intent.getParcelableExtra("recipe loader");
-        String Title = getString(recipes.getmrecipeName());
+                }
 
 
+                        , new Response.ErrorListener()
 
-          if (Title.contains("Honey Garlic")) {
-        Ingredient1 = getString(R.string.half) + " " + getString(R.string.cup) + " " + getString(R.string.ketchup);
-        Ingredient2 = getString(R.string.two) + " " + getString(R.string.twoThird) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.honey);
-        Ingredient3 = getString(R.string.two) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.soy);
-        Ingredient4 = getString(R.string.two) + " " + getString(R.string.clove) + " " + getString(R.string.garlic) + " " + getString(R.string.crush);
-        Ingredient5 = getString(R.string.six) + " " + getString(R.string.pork);
-        SetIngredientList();
-          }if(Title.contains("Classic Burger")){
-          Ingredient1 = getString(R.string.one) + " " + getString(R.string.half) + " " + getString(R.string.pound) + " " + getString(R.string.leanBeef);
-          Ingredient2 = getString(R.string.one) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.Worcestershire);
-          Ingredient3 = getString(R.string.one) + " " + getString(R.string.half) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.seasoning);
-          Ingredient4 = getString(R.string.one) + " " + getString(R.string.teaspoon) + " " + getString(R.string.garlicPowder);
-          Ingredient5 = getString(R.string.half) + " " + getString(R.string.teaspoon) + " " + getString(R.string.pepper);
-          Ingredient6 = getString(R.string.four) + " " + getString(R.string.slice);
-          Ingredient7 = getString(R.string.four) + " " + getString(R.string.hamburgerBun);
-               SetIngredientList();
-          }if(Title.contains("Tikka Masala")){
-          Ingredient1 = getString(R.string.one) + " " + getString(R.string.cup) + " " + getString(R.string.yogurt);
-          Ingredient2 = getString(R.string.one) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.lemon);
-          Ingredient3 = getString(R.string.two) + " " + getString(R.string.teaspoon) + " " + getString(R.string.cumin);
-          Ingredient4 = getString(R.string.one) + " " + getString(R.string.teaspoon) + " " + getString(R.string.cinnamon);
-          Ingredient5 = getString(R.string.two) + " " + getString(R.string.teaspoon) + " " + getString(R.string.cayenne);
-          Ingredient6 = getString(R.string.two) + " " + getString(R.string.teaspoon) + " " + getString(R.string.pepper);
-          Ingredient7 = getString(R.string.one) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.ginger);
-          Ingredient8 = getString(R.string.one) + " " + getString(R.string.teaspoon) + " " + getString(R.string.salt);
-          Ingredient9 = getString(R.string.three) + " " + getString(R.string.boneless) + " " + getString(R.string.chicken);
-          Ingredient10 = getString(R.string.four) + " " + getString(R.string.skewers);
-          Ingredient11 = getString(R.string.one) + " " + getString(R.string.Tablespoon) + " " + getString(R.string.butter);
-          Ingredient12 = getString(R.string.one) + " " + getString(R.string.clove) + " " + getString(R.string.garlic) + " " + getString(R.string.mince);
-          Ingredient13 = getString(R.string.one) + " " + getString(R.string.jalapeno) + " " + getString(R.string.chop);
-          Ingredient14 = getString(R.string.two) + " " + getString(R.string.teaspoon) + " " + getString(R.string.cumin);
-          Ingredient15 = getString(R.string.two) + " " + getString(R.string.teaspoon) + " " + getString(R.string.paprika);
-          Ingredient16 = getString(R.string.one) + " " + getString(R.string.teaspoon) + " " + getString(R.string.salt);
-          Ingredient17 = getString(R.string.one) + " " + getString(R.string.can) + " " + getString(R.string.tomatosauce);
-          Ingredient18 = getString(R.string.one) + " " + getString(R.string.cup) + " " + getString(R.string.cream);
-          Ingredient19 = getString(R.string.quarter) + " "  + getString(R.string.cup) + " " + getString(R.string.chop) + " " + getString(R.string.cilantro);
-           SetIngredientList();
-        }
+
+                {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("VOLLEY", "ERROR");
+
+                    }
+                });
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+        Glide.with(this).load(imageUrl).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(HeaderImage);
 
 
     }
 
-    public void SetIngredientList(){
-        //Ingrident View list
-        TextView mTextView = findViewById(R.id.ingredient1);
-        TextView mIngredient2 = findViewById(R.id.ingredient2);
-        TextView mIngredient3 = findViewById(R.id.ingredient3);
-        TextView mIngredient4 = findViewById(R.id.ingredient4);
-        TextView mIngredient5 = findViewById(R.id.ingredient5);
-        TextView mIngredient6 = findViewById(R.id.ingredient6);
-        TextView mIngredient7 = findViewById(R.id.ingredient7);
-        TextView mIngredient8 = findViewById(R.id.ingredient8);
-        TextView mIngredient9 = findViewById(R.id.ingredient9);
-        TextView mIngredient10 = findViewById(R.id.ingredient10);
-        TextView mIngredient11 = findViewById(R.id.ingredient11);
-        TextView mIngredient12 = findViewById(R.id.ingredient12);
-        TextView mIngredient13 = findViewById(R.id.ingredient13);
-        TextView mIngredient14 = findViewById(R.id.ingredient14);
-        TextView mIngredient15 = findViewById(R.id.ingredient15);
-        TextView mIngredient16 = findViewById(R.id.ingredient16);
-        TextView mIngredient17 = findViewById(R.id.ingredient17);
-        TextView mIngredient18 = findViewById(R.id.ingredient18);
-        TextView mIngredient19 = findViewById(R.id.ingredient19);
-        TextView mIngredient20 = findViewById(R.id.ingredient20);
-
-
-
-
-        mTextView.setText(Ingredient1);
-        mIngredient2.setText(Ingredient2);
-        mIngredient3.setText(Ingredient3);
-        mIngredient4.setText(Ingredient4);
-        mIngredient5.setText(Ingredient5);
-        mIngredient6.setText(Ingredient6);
-        mIngredient7.setText(Ingredient7);
-        mIngredient8.setText(Ingredient8);
-        mIngredient9.setText(Ingredient9);
-        mIngredient10.setText(Ingredient10);
-        mIngredient11.setText(Ingredient11);
-        mIngredient12.setText(Ingredient12);
-        mIngredient13.setText(Ingredient13);
-        mIngredient14.setText(Ingredient14);
-        mIngredient15.setText(Ingredient15);
-        mIngredient16.setText(Ingredient16);
-        mIngredient17.setText(Ingredient17);
-        mIngredient18.setText(Ingredient18);
-        mIngredient19.setText(Ingredient19);
-        mIngredient20.setText(Ingredient20);
-
     }
 
 
-
-
-
-
-
-
-}

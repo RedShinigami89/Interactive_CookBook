@@ -2,6 +2,7 @@ package com.red.shinigami.interactivecookbook;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -43,6 +44,7 @@ public class mainDishes extends AppCompatActivity{
                     case 2:
                     case 3:
                     case 4:
+                        ImageView imageView = findViewById(R.id.sampleImage);
                       Intent intent = new Intent(mainDishes.this, PorkChops_Activity.class);
                       intent.putExtra("recipe loader", recipes.get(position));
                       intent.putExtra("YTURL", recipes.get(position));
@@ -60,10 +62,11 @@ public class mainDishes extends AppCompatActivity{
         public void createRecipes(){
             recipes = new ArrayList<>();
             recipes.add(new Recipes(R.string.Porkchops,"https://i.imgur.com/ks3xoD6.jpg" ,"10 mins", "15 mins", "25 mins","https://players.brightcove.net/1033249144001/HyUr5pA17_default/index.html?videoId=5798846980001"));
-            recipes.add(new Recipes(R.string.burger,"https://i.imgur.com/g1YpBYB.jpg","10 mins", "8 mins", "18 mins", "https://content.jwplatform.com/videos/N6FmdHp7.mp4"));
+            recipes.add(new Recipes(R.string.burger,"https://i.imgur.com/y2u8UIF.jpg","10 mins", "8 mins", "18 mins", "https://content.jwplatform.com/videos/N6FmdHp7.mp4"));
             recipes.add(new Recipes(R.string.tikka,"https://i.imgur.com/2tWvs4y.jpg", "30 Mins", "50 mins", "2hrs 20 mins",""));
-            recipes.add(new Recipes(R.string.Missing, "https://media.giphy.com/media/YRo59AZhP7ngvndDul/giphy.gif", "0", "0", "0", ""));
+            recipes.add(new Recipes(R.string.twiceBaked, "https://media.giphy.com/media/YRo59AZhP7ngvndDul/giphy.gif", "15 mins", "1 hr 15 mins", "1hr 30mins", ""));
             recipes.add(new Recipes(R.string.Ginger_Beef, "https://i.imgur.com/RHh7eTP.jpg", "25 mins", "20 mins", "45 mins", ""));
+
 
 
         }
