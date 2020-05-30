@@ -18,13 +18,13 @@
     tools:context=".PorkChops_Activity">
 
     <androidx.appcompat.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:id="@+id/my_toolbar"
-    android:background="@color/colorPrimary"
-    android:elevation="2dp"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/my_toolbar"
+        android:background="@color/colorAccent"
+        android:elevation="2dp"
+        android:theme="@style/ToolbarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 
 
@@ -69,7 +69,8 @@
             android:id="@+id/VideoFrame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="225dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="200dp"
             android:layout_marginEnd="12dp">
 
             <ImageView
@@ -150,7 +151,6 @@
             android:layout_marginTop="8dp"
             android:layout_below="@id/frameDivider"
             android:layout_toEndOf="@id/cookTime"
-            android:layout_alignEnd="@id/frameDivider"
             android:fontFamily="@font/midnight1"
             android:text="@string/cook"
             android:textSize="14sp" />
@@ -164,6 +164,18 @@
             android:text="@string/prep"
             android:fontFamily="@font/midnight1"
             android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/serving2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@id/totalTime"
+            android:layout_alignStart="@id/totalTime"
+            android:text="@string/prep"
+            android:fontFamily="@font/midnight1"
+            android:textSize="12sp"/>
+
 
         <View
             android:id="@+id/frameDivider2"
@@ -252,7 +264,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient6"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient5"
@@ -263,7 +274,6 @@
 
         <TextView
             android:id="@+id/ingredient7"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient6"
@@ -273,7 +283,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient8"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient7"
@@ -283,7 +292,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient9"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient8"
@@ -293,7 +301,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient10"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient9"
@@ -304,7 +311,6 @@
 
         <TextView
             android:id="@+id/ingredient11"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient10"
@@ -315,7 +321,6 @@
 
         <TextView
             android:id="@+id/ingredient12"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient11"
@@ -335,7 +340,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient14"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient13"
@@ -346,7 +350,6 @@
 
         <TextView
             android:id="@+id/ingredient15"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/prep2"
@@ -357,7 +360,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient16"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient15"
@@ -368,7 +370,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient17"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient16"
@@ -379,7 +380,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient18"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient17"
@@ -390,7 +390,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient19"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient18"
@@ -401,7 +400,6 @@
             android:text="" />
         <TextView
             android:id="@+id/ingredient20"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ingredient19"
@@ -537,6 +535,35 @@
         android:fontFamily="@font/midnight1"
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/directions18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/midnight1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"/>
+
 
 </LinearLayout>
 </ScrollView>

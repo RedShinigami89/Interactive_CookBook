@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Interactive CookBook</string>
     <string name="Main_Dishes">Main Dishes</string>
+    <string name="search_title">Search</string>
     <string name="Drinks">Drinks</string>
     <string name="Desserts">Desserts</string>
     <string name="Kids">Kids Menu</string>
@@ -14,8 +15,10 @@
     <string name="tikka">Chicken Tikka Masala</string>
     <string name="Ginger_Beef">Crispy Ginger Beef</string>
     <string name="twiceBaked">Twice Baked Potatoes</string>
+    <string name="Meatballs">Sweet and Sour Meatballs</string>
     <string name="directions">Directions</string>
     <string name="enjoy">Bon appetite!</string>
+    <string name="servings">Servings</string>
 
 
     <!-- Ingredients and measurements -->

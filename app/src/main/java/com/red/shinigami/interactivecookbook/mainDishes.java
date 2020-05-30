@@ -2,16 +2,32 @@ package com.red.shinigami.interactivecookbook;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.SearchView;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class mainDishes extends AppCompatActivity{
+//import androidx.appcompat.widget.SearchView;
 
+public class mainDishes extends AppCompatActivity {
+    adapter adapter;
     private ArrayList<Recipes> recipes;
 
 
@@ -20,68 +36,113 @@ public class mainDishes extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dishes);
-        createRecipes();
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        mainDishes.this.setTitle("Entree's");
+        recipes = new ArrayList<>();
+        ParseJSON();
 
 
         RecyclerView recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final adapter mAdapter = new adapter(recipes);
-        recyclerView.setAdapter(mAdapter);
 
 
 
+    }
+
+    private void ParseJSON(){
+
+        String url = "https://api.npoint.io/e01a7a10d10c838c5e05";
+
+         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (com.android.volley.Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray JA = response.getJSONArray("entree"); //gets array information based on which contact was clicked via variable name
+                            for (int i = 0; i < JA.length(); i++) {
+                                JSONObject object = JA.getJSONObject(i);
+                                String recipeName = object.getString("name");
+                                String PrepTime = object.getString("prep");
+                                String CookTime = object.getString("cook");
+                                String TotalTime = object.getString("total");
+                                String recipeImage = object.getString("image");
 
 
+                                recipes.add(new Recipes(recipeName, recipeImage, PrepTime, CookTime, TotalTime, ""));
 
-        mAdapter.setOnItemClickListener(new adapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                changeItem(position);
-                switch (position) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        ImageView imageView = findViewById(R.id.sampleImage);
-                      Intent intent = new Intent(mainDishes.this, PorkChops_Activity.class);
-                      intent.putExtra("recipe loader", recipes.get(position));
-                      intent.putExtra("YTURL", recipes.get(position));
-                      startActivity(intent);
-                        break;
+
+                            }
+
+                            RecyclerView recyclerView = findViewById(R.id.rv);
+                            final adapter mAdapter = new adapter(mainDishes.this, recipes);
+                            recyclerView.setAdapter(mAdapter);
+
+
+                            mAdapter.setOnItemClickListener(new adapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(int position) {
+                                    changeItem(position);
+                                    ImageView imageView = findViewById(R.id.sampleImage);
+                                    Intent intent = new Intent(mainDishes.this, PorkChops_Activity.class);
+                                    intent.putExtra("recipe loader", recipes.get(position));
+                                    intent.putExtra("YTURL", recipes.get(position));
+                                    startActivity(intent);
+
+                                    mAdapter.notifyItemChanged(position);
+
+
+                                }
+                            });
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
 
                 }
-                mAdapter.notifyItemChanged(position);
+
+
+                        , new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("VOLLEY", "ERROR");
+
+                    }
+                });
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        final MenuItem searchItem = menu.findItem(R.id.search);
+        adapter = new adapter(mainDishes.this, recipes);
+
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
-
-
-        }
-
-        public void createRecipes(){
-            recipes = new ArrayList<>();
-            recipes.add(new Recipes(R.string.Porkchops,"https://i.imgur.com/ks3xoD6.jpg" ,"10 mins", "15 mins", "25 mins","https://players.brightcove.net/1033249144001/HyUr5pA17_default/index.html?videoId=5798846980001"));
-            recipes.add(new Recipes(R.string.burger,"https://i.imgur.com/y2u8UIF.jpg","10 mins", "8 mins", "18 mins", "https://content.jwplatform.com/videos/N6FmdHp7.mp4"));
-            recipes.add(new Recipes(R.string.tikka,"https://i.imgur.com/2tWvs4y.jpg", "30 Mins", "50 mins", "2hrs 20 mins",""));
-            recipes.add(new Recipes(R.string.twiceBaked, "https://media.giphy.com/media/YRo59AZhP7ngvndDul/giphy.gif", "15 mins", "1 hr 15 mins", "1hr 30mins", ""));
-            recipes.add(new Recipes(R.string.Ginger_Beef, "https://i.imgur.com/RHh7eTP.jpg", "25 mins", "20 mins", "45 mins", ""));
-
-
-
-        }
-
-
-
+        return true;
+    }
 
        public void changeItem(int position){
             recipes.get(position);
         }
-
-
-
-
-
 
     }
 

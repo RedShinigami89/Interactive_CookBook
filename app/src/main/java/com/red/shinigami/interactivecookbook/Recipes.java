@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 class Recipes implements Parcelable {
 
-    private int mrecipeName;
+    public String mrecipeName;
     private String mPrepTime;
     private String mCookTime;
     private String mTotalTime;
@@ -13,7 +13,7 @@ class Recipes implements Parcelable {
     private String mYTURL;
 
 
-    Recipes(int recipeName, String recipeImage, String PrepTime, String CookTime, String TotalTime, String YTURL){
+    Recipes(String recipeName, String recipeImage, String PrepTime, String CookTime, String TotalTime, String YTURL){
       mrecipeName = recipeName;
       mRecipeImages = recipeImage;
       mPrepTime = PrepTime;
@@ -25,8 +25,8 @@ class Recipes implements Parcelable {
 
     }
 
-    private Recipes(Parcel in) {
-        mrecipeName = in.readInt();
+    public Recipes(Parcel in) {
+        mrecipeName = in.readString();
         mPrepTime = in.readString();
         mCookTime = in.readString();
         mTotalTime = in.readString();
@@ -46,13 +46,9 @@ class Recipes implements Parcelable {
         }
     };
 
-    void changeText(int text){
-      mrecipeName = text;
-    }
-
     String getmRecipeImages(){return mRecipeImages;}
 
-     int getmrecipeName(){
+     String getmrecipeName(){
       return mrecipeName;
     }
 
@@ -78,7 +74,7 @@ class Recipes implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(mrecipeName);
+        parcel.writeString(mrecipeName);
         parcel.writeString(mPrepTime);
         parcel.writeString(mCookTime);
         parcel.writeString(mTotalTime);

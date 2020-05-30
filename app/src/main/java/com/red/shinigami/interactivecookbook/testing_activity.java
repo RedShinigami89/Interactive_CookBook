@@ -24,7 +24,7 @@ public class testing_activity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Recipes recipes = intent.getParcelableExtra("recipe loader");
-      final  String name = getString(recipes.getmrecipeName());
+      final  String name = recipes.getmrecipeName();
 
 
         String url = "https://api.npoint.io/11990ece203fd1b2c219";

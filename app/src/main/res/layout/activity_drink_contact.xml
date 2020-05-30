@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/parchment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:id="@+id/linearLayout"
+        tools:context=".PorkChops_Activity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/my_toolbar"
+            android:background="@color/colorAccent"
+            android:elevation="2dp"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+
+        <ImageView
+            android:id="@+id/drinkImage"
+            android:contentDescription="@string/Main_Dishes"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:transitionName="Slider"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/ic_ornament_146823"
+            />
+
+        <TextView
+            android:id="@+id/drinkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:fontFamily="@font/midnight1"
+            android:textColor="@color/colorAccent"/>
+
+        <View
+            android:id="@+id/TitleHeaderLowerBar"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_margin="18dp"
+            android:background="@drawable/ic_ornament_146823"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/drinkIngredient1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"/>
+            <TextView
+                android:id="@+id/drinkIngredient2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/drinkIngredient1"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"/>
+            <TextView
+                android:id="@+id/drinkIngredient3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/drinkIngredient2"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"/>
+            <TextView
+                android:id="@+id/Steps1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/drinkIngredient1"
+                android:layout_alignStart="@id/Steps2"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/Steps2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/Steps1"
+                android:layout_toEndOf="@id/drinkIngredient2"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/Steps3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/Steps2"
+                android:layout_toEndOf="@id/drinkIngredient3"
+                android:fontFamily="@font/midnight1"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

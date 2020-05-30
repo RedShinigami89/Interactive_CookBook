@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".testing_activity"></activity>
+        <activity android:name=".Baked_Card"></activity>
+        <activity android:name=".baked_goods" />
+        <activity android:name=".drinkContact" />
+        <activity android:name=".Drinks" />
+        <activity android:name=".testing_activity" />
         <activity android:name=".PorkChops_Activity" />
         <activity
             android:name=".RecipeDetailActivity"
-            android:label="Recipe Details"></activity>
+            android:label="Recipe Details" />
         <activity
             android:name=".mainDishes"
             android:label="Main Dishes" />

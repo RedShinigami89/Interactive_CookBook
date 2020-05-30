@@ -16,6 +16,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        ImageView drinks = findViewById(R.id.cocktail);
+        drinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent contactIntent = new Intent(MainActivity.this, Drinks.class);
+                startActivity(contactIntent);
+            }
+        });
 
 
         ImageView mainDishes= findViewById(R.id.MainDishes);
