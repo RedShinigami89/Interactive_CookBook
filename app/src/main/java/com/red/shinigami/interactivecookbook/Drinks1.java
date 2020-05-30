@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Drinks extends AppCompatActivity {
+public class Drinks1 extends AppCompatActivity {
     ArrayList<drinks> drinkRecipes;
     drinkAdapter DrinkAdapter;
 
@@ -67,7 +67,7 @@ public class Drinks extends AppCompatActivity {
                             }
 
                             RecyclerView recyclerView = findViewById(R.id.rvDrinks);
-                            final drinkAdapter mdrinkAdapter = new drinkAdapter(Drinks.this, drinkRecipes);
+                            final drinkAdapter mdrinkAdapter = new drinkAdapter(Drinks1.this, drinkRecipes);
                             recyclerView.setAdapter(mdrinkAdapter);
 
 
@@ -75,7 +75,7 @@ public class Drinks extends AppCompatActivity {
                                 @Override
                                 public void onItemClick(int position) {
                                     changeItem(position);
-                                    Intent intent = new Intent(Drinks.this, drinkContact.class);
+                                    Intent intent = new Intent(Drinks1.this, drinkContact.class);
                                     intent.putExtra("Drink Loader", drinkRecipes.get(position));
                                     startActivity(intent);
 

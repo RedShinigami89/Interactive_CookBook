@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent contactIntent = new Intent(MainActivity.this, Drinks.class);
+                Intent contactIntent = new Intent(MainActivity.this, Drinks1.class);
                 startActivity(contactIntent);
             }
         });

@@ -30,7 +30,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/recipeName"
                 android:textColor="#BE8CFF"
-                android:layout_toEndOf="@+id/sampleImage"
+                android:layout_toEndOf="@+id/IMG_Baked"
                 android:layout_alignParentTop="true"
                 android:fontFamily="@font/midnight1"
                 android:textSize="18sp"
@@ -44,7 +44,7 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/midnight1"
                 android:layout_below="@id/recipeName"
-                android:layout_toEndOf="@id/sampleImage"
+                android:layout_toEndOf="@id/IMG_Baked"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="8dp"/>
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="30dp"
                 android:layout_below="@id/prep"
-                android:layout_toEndOf="@id/sampleImage"/>
+                android:layout_toEndOf="@id/IMG_Baked"/>
 
             <TextView
                 android:id="@+id/CookTime"

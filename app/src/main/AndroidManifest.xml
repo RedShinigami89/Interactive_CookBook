@@ -12,7 +12,7 @@
         <activity android:name=".Baked_Card"></activity>
         <activity android:name=".baked_goods" />
         <activity android:name=".drinkContact" />
-        <activity android:name=".Drinks" />
+        <activity android:name=".Drinks1" />
         <activity android:name=".testing_activity" />
         <activity android:name=".PorkChops_Activity" />
         <activity
