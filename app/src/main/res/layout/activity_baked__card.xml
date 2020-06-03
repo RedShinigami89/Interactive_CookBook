@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,14 +21,17 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/app_name" />
+
             <TextView
+                android:id="@+id/recipeNameBaked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:id="@+id/recipeName"
                 android:textColor="#BE8CFF"
+                android:text="@string/app_name"
                 android:layout_toEndOf="@+id/IMG_Baked"
                 android:layout_alignParentTop="true"
                 android:fontFamily="@font/midnight1"
@@ -43,7 +45,7 @@
                 android:text="@string/prep"
                 android:textSize="16sp"
                 android:fontFamily="@font/midnight1"
-                android:layout_below="@id/recipeName"
+                android:layout_below="@id/recipeNameBaked"
                 android:layout_toEndOf="@id/IMG_Baked"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="8dp"/>
@@ -54,7 +56,7 @@
                 android:text="@string/cook"
                 android:textSize="16sp"
                 android:fontFamily="@font/midnight1"
-                android:layout_below="@id/recipeName"
+                android:layout_below="@id/recipeNameBaked"
                 android:layout_toEndOf="@id/prep"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="16dp"/>
@@ -65,42 +67,42 @@
                 android:text="@string/total"
                 android:textSize="16sp"
                 android:fontFamily="@font/midnight1"
-                android:layout_below="@id/recipeName"
                 android:layout_toEndOf="@id/cook"
+                android:layout_below="@id/recipeNameBaked"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="16dp"/>
 
             <TextView
-                android:id="@+id/PrepTime"
+                android:id="@+id/BakedPrepTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/midnight1"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="28dp"
                 android:layout_below="@id/prep"
                 android:layout_toEndOf="@id/IMG_Baked"/>
 
             <TextView
-                android:id="@+id/CookTime"
+                android:id="@+id/BakedCookTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/midnight1"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="38dp"
                 android:layout_below="@id/prep"
-                android:layout_toEndOf="@id/PrepTime"/>
+                android:layout_toEndOf="@id/BakedPrepTime"/>
             <TextView
-                android:id="@+id/TotalTime"
+                android:id="@+id/BakedTotalTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/midnight1"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="38dp"
                 android:layout_below="@id/prep"
-                android:layout_toEndOf="@id/CookTime"/>
+                android:layout_toEndOf="@id/BakedCookTime"/>
 
         </RelativeLayout>
 

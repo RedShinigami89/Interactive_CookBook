@@ -36,5 +36,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(contactIntent);
             }
         });
+
+        ImageView BakedGoods = findViewById(R.id.cake);
+        BakedGoods.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View view) {
+                Intent contactIntent = new Intent(MainActivity.this, baked_goods.class);
+                startActivity(contactIntent);
+            }
+        });
     }
 }

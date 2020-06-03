@@ -19,21 +19,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class adapter extends RecyclerView.Adapter<adapter.viewHolder> implements Filterable {
-    private static List<Recipes> mRecipes;
-    private static List<Recipes> mRecipesFiltered;
+            private static List<Recipes> mRecipes;
+            private static List<Recipes> mRecipesFiltered;
+            private OnItemClickListener mListener;
 
-    private OnItemClickListener mListener;
 
+            public interface OnItemClickListener {
+                void onItemClick(int position);
+            }
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
+            void setOnItemClickListener(OnItemClickListener listener) {
+                mListener = listener;
+            }
 
-    void setOnItemClickListener(OnItemClickListener listener) {
-        mListener = listener;
-    }
-
-    static class viewHolder extends RecyclerView.ViewHolder {
+            static class viewHolder extends RecyclerView.ViewHolder {
 
 
         ImageView mImageView;
@@ -105,15 +104,6 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> implements
         Glide.with(holder.itemView).load(currentRecipes.getmRecipeImages()).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(holder.mImageView);
 
 
-
-
-
-       /* switch(position){
-            case 0:
-
-        }
-        */
-
     }
 
 
@@ -155,13 +145,4 @@ public class adapter extends RecyclerView.Adapter<adapter.viewHolder> implements
             notifyDataSetChanged();
         }
     };
-
-
-
-
-    public void upToDate(List<Recipes> newList){
-        mRecipesFiltered = new ArrayList<>(); // recipesList is your arrayList in your adapter that you give it from activity
-        mRecipesFiltered.addAll(newList);
-        notifyDataSetChanged();
-    }
 }
