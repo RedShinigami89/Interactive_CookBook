@@ -27,9 +27,17 @@ public class bakingAdapter extends RecyclerView.Adapter<bakingAdapter.viewHolder
     private static ArrayList<Baking_Model> mBakingRecipesFiltered;
     private adapter.OnItemClickListener mListener;
 
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
     bakingAdapter(Context context, ArrayList<Baking_Model> Recipes) {
         mBakingRecipes = Recipes;
         mBakingRecipesFiltered = new ArrayList<>(Recipes);
+    }
+
+    void setOnItemClickListener(adapter.OnItemClickListener listener) {
+        mListener = listener;
     }
 
     @NonNull
@@ -67,13 +75,33 @@ public class bakingAdapter extends RecyclerView.Adapter<bakingAdapter.viewHolder
         TextView mTotal;
 
 
-        public viewHolder(@NonNull View itemView, adapter.OnItemClickListener mListener) {
+        public viewHolder(@NonNull View itemView, final adapter.OnItemClickListener listener) {
             super(itemView);
             mName = itemView.findViewById(R.id.recipeNameBaked);
             mImage = itemView.findViewById(R.id.IMG_Baked);
             mPrep = itemView.findViewById(R.id.BakedPrepTime);
             mCook = itemView.findViewById(R.id.BakedCookTime);
             mTotal = itemView.findViewById(R.id.BakedTotalTime);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+
+
+                        }
+
+
+                    }
+
+                }
+
+
+            });
         }
     }
 

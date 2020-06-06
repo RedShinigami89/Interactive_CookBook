@@ -1,5 +1,8 @@
 package com.red.shinigami.interactivecookbook;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,11 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-
-public class PorkChops_Activity extends AppCompatActivity {
+public class BakedGoods_Details extends AppCompatActivity {
 
 
 
@@ -31,15 +30,15 @@ public class PorkChops_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_porkchops);
+        setContentView(R.layout.activity_baked_goods__details);
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         VideoViewIniate();
 
         Intent intent = getIntent();
-        Recipes recipes = intent.getParcelableExtra("recipe loader");
-        final  String name = recipes.getmrecipeName();
-        PorkChops_Activity.this.setTitle(name);
+        Baking_Model baked = intent.getParcelableExtra("baked");
+        final  String name = baked.getmName();
+        BakedGoods_Details.this.setTitle(name);
 
 
 
@@ -98,7 +97,7 @@ public class PorkChops_Activity extends AppCompatActivity {
         final ImageView HeaderImage = findViewById(R.id.Image);
 
 
-        String url = "https://api.npoint.io/11990ece203fd1b2c219";
+        String url = "https://api.npoint.io/891d83b380c01c581ed8";
 
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (com.android.volley.Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -202,7 +201,7 @@ public class PorkChops_Activity extends AppCompatActivity {
                                 Serving.setText(servings);
 
 
-                              Glide.with(PorkChops_Activity.this).load(URL).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(HeaderImage);
+                                Glide.with(BakedGoods_Details.this).load(URL).apply(new RequestOptions().centerCrop().placeholder(R.drawable.ic_burger).error(R.drawable.ic_error)).into(HeaderImage);
 
 
 
@@ -243,18 +242,16 @@ public class PorkChops_Activity extends AppCompatActivity {
         ImageView Error = findViewById(R.id.ImageViewError);
         Intent intent = getIntent();
         Recipes recipes = intent.getParcelableExtra("recipe loader");
-        String YTURL = recipes.getmYTURL();
+        String YTURL = "";
 
         if (YTURL.contains(".mp4")) {
 
-         Vid.setVideoURI(Uri.parse(YTURL));
-         Vid.start();
-     }else{
+            Vid.setVideoURI(Uri.parse(YTURL));
+            Vid.start();
+        }else{
             Error.setVisibility(View.VISIBLE);
             Vid.setVisibility(View.GONE);
         }
     }
 
-    }
-
-
+}

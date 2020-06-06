@@ -64,6 +64,20 @@ public class baked_goods extends AppCompatActivity {
                             final bakingAdapter mAdapter = new bakingAdapter(baked_goods.this, BakedGoods);
                             recyclerView.setAdapter(mAdapter);
 
+                            mAdapter.setOnItemClickListener(new adapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(int position) {
+                                    changeItem(position);
+                                    ImageView imageView = findViewById(R.id.sampleImage);
+                                    Intent intent = new Intent(baked_goods.this, BakedGoods_Details.class);
+                                    intent.putExtra("baked", BakedGoods.get(position));
+                                    intent.putExtra("YTURL", BakedGoods.get(position));
+                                    startActivity(intent);
+
+                                    mAdapter.notifyItemChanged(position);
+                                }
+                            });
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
